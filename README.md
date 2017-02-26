@@ -5,12 +5,12 @@
 
 | Method | URL                                   | Description                            | Action                       |
 |--------|---------------------------------------|----------------------------------------|------------------------------|
-|`GET`   | `/todos`                              | Get a list of todos                    | [TodoIndex](#todoIndex)      |
-|`GET`   | `/todos/{todoId}`                     | Get a todo by :id.                     | [TodoShow](#todoShow)        |
-|`POST`  | `/todos`                              | Create a new todo.                     | [TodoCreate](#todoCreate)    |
+|`GET`   | `/todos`                              | Get a list of todos                    | [find](#find)                |
+|`GET`   | `/todos/{todoId}`                     | Get a todo by :id.                     | [findOne](#findOne)          |
+|`POST`  | `/todos`                              | Create a new todo.                     | [create](#create)            |
 
 
-#### <a name="todoIndex"></a>`GET` TodoIndex
+#### <a name="find"></a>`GET` find
 ------
 
 | Method | URL                                   | Description                            |
@@ -48,7 +48,7 @@
 ]
 ```
 
-#### <a name="todoShow"></a>`GET` TodoShow
+#### <a name="findOne"></a>`GET` findOne
 ------
 
 | Method | URL                                   | Description                            |
@@ -73,7 +73,7 @@
 ]
 ```
 
-#### <a name="todoCreate"></a>`POST` TodoCreate
+#### <a name="create"></a>`POST` create
 ------
 
 | Method | URL                                   | Description                            |

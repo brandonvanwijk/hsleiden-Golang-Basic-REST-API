@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
+	"strconv"
 
 	"io"
 	"io/ioutil"
@@ -18,6 +19,7 @@ func Index(w http.ResponseWriter, r *http.Request) {
 func find(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
 	w.WriteHeader(http.StatusOK)
+
 	if err := json.NewEncoder(w).Encode(todos); err != nil {
 		panic(err)
 	}
@@ -25,8 +27,19 @@ func find(w http.ResponseWriter, r *http.Request) {
 
 func findOne(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
-	todoId := vars["todoId"]
-	fmt.Fprintf(w, "Todo show: ", todoId)
+
+	todoId, err := strconv.Atoi(vars["todoId"])
+	if err != nil {
+		panic(err)
+	}
+
+	t := RepoFindTodo(todoId)
+	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
+	w.WriteHeader(http.StatusFound)
+
+	if err := json.NewEncoder(w).Encode(t); err != nil {
+		panic(err)
+	}
 }
 
 func create(w http.ResponseWriter, r *http.Request) {

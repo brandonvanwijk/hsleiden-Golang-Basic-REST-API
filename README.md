@@ -15,14 +15,8 @@
 
 | Method | URL                                   | Description                            |
 |--------|---------------------------------------|----------------------------------------|
-|`GET`   | `/todos`                              | Get a list of estimates.               |
+|`GET`   | `/todos`                              | Get a list of todos.                   |
 
-**Params**
-
-| Param    | Type  | Default         | Description                        |
-|----------|-------|-----------------|------------------------------------|
-|`limit`   | `int` | 25              | Amount of items returned           |
-|`offset`  | `int` | 0               | Offset                             |
 
 **Response**
 ```json
